@@ -1,0 +1,40 @@
+﻿<Window x:Class="TortugasNazarova.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TortugasNazarova"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="834" Width="1194">
+    <Grid Background="#FF091E05">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="175"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="175"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Выберете столик"
+                   Foreground="#FFD87CAC"
+                   FontSize="32"
+                   HorizontalAlignment="Center"
+                   Margin="48" 
+                   Grid.ColumnSpan="4"/>
+        <Button x:Name="btnNext" 
+                Click="btnNext_Click"
+                Grid.Row="3"
+                Background="#FFD87CAC"
+                Height="40"
+                Width="100" Grid.ColumnSpan="4"/>
+
+    </Grid>
+</Window>
