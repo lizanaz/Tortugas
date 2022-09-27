@@ -13,10 +13,10 @@ namespace TortugasNazarova.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TortugasNazarovaEntities : DbContext
+    public partial class EntitiesHome : DbContext
     {
-        public TortugasNazarovaEntities()
-            : base("name=TortugasNazarovaEntities")
+        public EntitiesHome()
+            : base("name=EntitiesHome")
         {
         }
     

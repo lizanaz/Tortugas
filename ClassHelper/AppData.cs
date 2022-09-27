@@ -8,6 +8,6 @@ namespace TortugasNazarova.ClassHelper
 {
     class AppData
     {
-        public static EF.TortugasNazarovaEntities context = new EF.TortugasNazarovaEntities();
+        public static EF.EntitiesHome context = new EF.EntitiesHome();
     }
 }

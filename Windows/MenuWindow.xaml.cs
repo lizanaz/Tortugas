@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TortugasNazarova.EF;
-using static TortugasNazarova.ClassHelper.AppData;
 
 namespace TortugasNazarova.Windows
 {
@@ -27,9 +26,5 @@ namespace TortugasNazarova.Windows
             LVItems.ItemsSource = ClassHelper.AppData.context.Dish.ToList();
         }
 
-        private void LVItems_SelectionChanged()
-        {
-
-        }
     }
 }
