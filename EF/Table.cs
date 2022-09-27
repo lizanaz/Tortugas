@@ -7,28 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TortugasNazarova.ER
+namespace TortugasNazarova.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Table
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
+        public Table()
         {
             this.Order = new HashSet<Order>();
+            this.Reserved = new HashSet<Reserved>();
         }
     
         public int Id { get; set; }
-        public string FName { get; set; }
-        public string LName { get; set; }
-        public string MName { get; set; }
-        public int GenderId { get; set; }
-        public string Phone { get; set; }
+        public int QtySeat { get; set; }
     
-        public virtual Gender Gender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserved> Reserved { get; set; }
     }
 }

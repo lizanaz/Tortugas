@@ -7,34 +7,182 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="834" Width="1194">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonEclipse" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="1020" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid Background="#FF091E05">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="175"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="175"/>
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
 
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions>-->
 
         <TextBlock Text="Выберете столик"
                    Foreground="#FFD87CAC"
                    FontSize="32"
                    HorizontalAlignment="Center"
                    Margin="48" 
-                   Grid.ColumnSpan="4"/>
-        <Button x:Name="btnNext" 
+                   Grid.ColumnSpan="6"
+                   Height="40"
+                   VerticalAlignment="Top"/>
+
+
+        <Border Height="500" Width="209" 
+                    Grid.Row="1" Grid.Column="1">
+            <StackPanel >
+                <Button Height="74"
+                                Width="74"
+                                 Margin="50"
+                                 Background="#FF004F2D" 
+                                 BorderBrush="#FF004F2D"/>
+
+                <Button Height="60"
+                                Width="60"
+                                 Margin="0 100 0 0"
+                                 Background="#FF004F2D"
+                        BorderBrush="#FF004F2D"/>
+
+                <Button Height="60"
+                                Width="60"
+                                 Margin="0 32"
+                                 Background="#FF004F2D"
+                        BorderBrush="#FF004F2D"/>
+
+
+
+            </StackPanel>
+
+        </Border>
+
+        <StackPanel Grid.Column="2" Height="600" Width="209" 
+                    Margin="0 50 0 0">
+            
+            <StackPanel Width="209" >
+
+                <Button Style="{DynamicResource ButtonEclipse}"
+                        Height="25"
+                        Width="25"
+                        BorderBrush="#FFF9B9C3"
+                        Background="#FFF9B9C3"
+                        Margin="0 200 0 0"/>
+
+                <Button Height="55"
+                     Width="55"
+                     BorderBrush="#FF004F2D"
+                    Background="#FF004F2D"
+                     Margin="0 8 0 0"
+                    Style="{DynamicResource ButtonEclipse}"/>
+                
+                <Button Style="{DynamicResource ButtonEclipse}"
+                        Height="25"
+                        Width="25"
+                        BorderBrush="#FFF9B9C3"
+                        Background="#FFF9B9C3"
+                        Margin="0 8 0 0"/>
+
+            </StackPanel>
+            
+
+
+            <Button Width="120"
+                    Height="73"
+                    Margin="0 120 0 0"
+                    Background="#FF004F2D"
+                    BorderBrush="#FF004F2D"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.ColumnSpan="2"
+                    Height="100" Width="418"
+                    VerticalAlignment="Top"
+                    Margin="0 170 0 0">
+            
+            <Button Grid.ColumnSpan="6"
+                Height="86"
+                Width="285" 
+                Style="{DynamicResource ButtonEclipse}"
+                Background="#FF004F2D"
+                BorderBrush="#FF004F2D" 
+                Click="btnNext_Click"/>
+            
+        </StackPanel>
+
+        
+
+        <!--<Button x:Name="btnNext" 
                 Click="btnNext_Click"
                 Grid.Row="3"
                 Background="#FFD87CAC"
                 Height="40"
-                Width="100" Grid.ColumnSpan="4"/>
+                Width="150" Grid.ColumnSpan="6"/>-->
+        <!--<Ellipse Width="285"
+                     Height="86"
+                     Fill="#FF004F2D"/>-->
 
     </Grid>
 </Window>

@@ -7,19 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TortugasNazarova.ER
+namespace TortugasNazarova.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderDish
+    public partial class Reserved
     {
         public int Id { get; set; }
-        public int OrderId { get; set; }
-        public int DishId { get; set; }
-        public int Qty { get; set; }
+        public int TabeId { get; set; }
+        public int ClientId { get; set; }
+        public System.DateTime Date { get; set; }
+        public System.TimeSpan Time { get; set; }
     
-        public virtual Dish Dish { get; set; }
-        public virtual Order Order { get; set; }
+        public virtual Client Client { get; set; }
+        public virtual Table Table { get; set; }
     }
 }

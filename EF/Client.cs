@@ -7,28 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TortugasNazarova.ER
+namespace TortugasNazarova.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class Client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
+        public Client()
         {
-            this.OrderDish = new HashSet<OrderDish>();
+            this.Reserved = new HashSet<Reserved>();
         }
     
         public int Id { get; set; }
-        public int TableId { get; set; }
-        public System.DateTime OrderDate { get; set; }
-        public decimal FinalCost { get; set; }
-        public int EmployeeId { get; set; }
+        public string LName { get; set; }
+        public string FName { get; set; }
+        public string Phone { get; set; }
     
-        public virtual Employee Employee { get; set; }
-        public virtual Table Table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDish> OrderDish { get; set; }
+        public virtual ICollection<Reserved> Reserved { get; set; }
     }
 }

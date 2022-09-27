@@ -7,20 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TortugasNazarova.ER
+namespace TortugasNazarova.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Reserved
+    public partial class Ingredient
     {
-        public int Id { get; set; }
-        public int TabeId { get; set; }
-        public int ClientId { get; set; }
-        public System.DateTime Date { get; set; }
-        public System.TimeSpan Time { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Ingredient()
+        {
+            this.IngredientDish = new HashSet<IngredientDish>();
+        }
     
-        public virtual Client Client { get; set; }
-        public virtual Table Table { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<IngredientDish> IngredientDish { get; set; }
     }
 }

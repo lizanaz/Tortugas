@@ -7,32 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TortugasNazarova.ER
+namespace TortugasNazarova.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Dish
+    public partial class Gender
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Dish()
+        public Gender()
         {
-            this.IngredientDish = new HashSet<IngredientDish>();
-            this.OrderDish = new HashSet<OrderDish>();
+            this.Employee = new HashSet<Employee>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int Weight { get; set; }
-        public string Description { get; set; }
-        public int CategoryId { get; set; }
-        public byte[] PhotoPath { get; set; }
     
-        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IngredientDish> IngredientDish { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDish> OrderDish { get; set; }
+        public virtual ICollection<Employee> Employee { get; set; }
     }
 }

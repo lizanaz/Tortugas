@@ -7,170 +7,221 @@
         mc:Ignorable="d"
         Title="MenuWindow" Height="834" Width="1194"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="BtnAddCorner" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="5" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid Background="#FF091E05">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="7*"/>
+
 
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="175"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+
             <ColumnDefinition Width="175"/>
 
         </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    Grid.RowSpan="3">
+
+            <TextBlock Text="Салаты"
+                   Foreground="#FFF9B9C3"
+                   FontSize="20"
+                   VerticalAlignment="Top"
+                   />
+
+            <TextBlock Text="Закуски"
+                   Foreground="#FFF9B9C3"
+                   FontSize="20"
+                   VerticalAlignment="Top"
+                   Margin="0 16"
+                   />
+            <TextBlock Text="Горячее"
+                   Foreground="#FFF9B9C3"
+                   FontSize="20"
+                   VerticalAlignment="Top"
+                   />
+            <TextBlock Text="Супы"
+                   Foreground="#FFF9B9C3"
+                   FontSize="20"
+                   VerticalAlignment="Top"
+                   Margin="0 16"
+                   />
+            <TextBlock Text="Паста"
+                   Foreground="#FFF9B9C3"
+                   FontSize="20"
+                   VerticalAlignment="Top"
+                   />
+            <TextBlock Text="Десерты"
+                   Foreground="#FFF9B9C3"
+                   FontSize="20"
+                   VerticalAlignment="Top"
+                   Margin="0 16"
+                   />
+            <TextBlock Text="Напитки"
+                   Foreground="#FFF9B9C3"
+                   FontSize="20"
+                   VerticalAlignment="Top"
+                   />
+
+        </StackPanel>
 
         <TextBlock Text="Категории"
                    Foreground="#FFD87CAC"
                    FontSize="24"
                    VerticalAlignment="Bottom"
                    Grid.Column="1"
-                   Margin="0 20"/>
+                   Margin="0 10"/>
 
-        <TextBlock Text="Салаты"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   />
+        <ListView x:Name="LVItems"
+                  Grid.Row="1"
+                  Grid.Column="2"
+                  Background="#FF091E05"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
 
-        <TextBlock Text="Закуски"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   Margin="0 40"
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   />
-        <TextBlock Text="Горячее"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   Margin="0 80"
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   />
-        <TextBlock Text="Супы"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   Margin="0 120 0 0"
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   />
-        <TextBlock Text="Паста"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   Margin="0 160 0 0"
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   />
-        <TextBlock Text="Десерты"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   Margin="0 200 0 0"
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   />
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <Border Grid.Column="2"
+           Grid.Row="1"
+            Width="196"
+                            Height="197"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="0 0 20 0"
+                            Background="#FF5C695A"
+                            CornerRadius="5"
+                            >
+
+                        <Grid>
 
 
+                            <StackPanel Background="#FF5C695A"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                            Width="196"
+                            Height="181">
+
+                                <Image Width="130"
+                           Height="104"
+                           VerticalAlignment="Top"
+                           Margin="33 16 33 0"
+                           Source="{Binding Path=PhotoPath}"/>
 
 
+                                <TextBlock Text="{Binding Path=Name}"
+                               Margin="24 16 0 0"
+                                           FontSize="16"
+                                           HorizontalAlignment="Left"
+                                           Foreground="#FFF9B9C3"
+                                           FontFamily="Alegreya Sans SC"/>
 
-        <Button Grid.Column="2"
-                Grid.Row="1"
-                Height="197"
-                Width="196"
-                Background="#FF5C695A"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
+                                <TextBlock Text="{Binding Path=Price}"
+                                           Foreground="#FFF9B9C3"
+                                           FontFamily="Alegreya Sans SC"
+                                           FontSize="16"
+                               HorizontalAlignment="Left"
+                                           Margin="24 8 0 0"/>
 
-        
+                            </StackPanel>
 
-        <Button Grid.Column="3"
-                Grid.Row="1"
-                Background="#FF5C695A"
-                Height="197"
-                Width="196"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
+                            <Button Height="24"
+                        Width="24"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Margin="148 136 24 37"
+                        Background="#FF004F2D" 
+                        Style="{DynamicResource BtnAddCorner}"
+                        BorderBrush="#FF004F2D"/>
 
+                        </Grid>
 
-        <Button Grid.Column="4"
-                Grid.Row="1"
-                Background="#FF5C695A"
-                Height="197"
-                Width="196"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
+                    </Border>
 
-        <Button Grid.Column="2"
-                Grid.Row="2"
-                Background="#FF5C695A"
-                Height="197"
-                Width="196"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
-
-        <Button Grid.Column="3"
-                Grid.Row="2"
-                Background="#FF5C695A"
-                Height="197"
-                Width="196"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
-
-        <Button Grid.Column="4"
-                Grid.Row="2"
-                Background="#FF5C695A"
-                Height="197"
-                Width="196"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
-
-        <Button Grid.Column="2"
-                Grid.Row="3"
-                Background="#FF5C695A"
-                Height="197"
-                Width="196"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
-
-        <Button Grid.Column="3"
-                Grid.Row="3"
-                Background="#FF5C695A"
-                Height="197"
-                Width="196"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
-
-        <Button Grid.Column="4"
-                Grid.Row="3"
-                Background="#FF5C695A"
-                Height="197"
-                Width="196"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
-
-
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <TextBlock Text="Корзина"
                    Foreground="#FFD87CAC"
                    FontSize="24"
-                   Grid.Column="4"
-                   Margin="0 20"
-                   VerticalAlignment="Bottom"/>
+                   Grid.Column="2"
+                   Margin="0 10"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Right"/>
 
+       
+
+        
 
     </Grid>
 </Window>
