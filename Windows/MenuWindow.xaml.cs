@@ -23,7 +23,11 @@ namespace TortugasNazarova.Windows
         public MenuWindow()
         {
             InitializeComponent();
+
+            //LVCategory.ItemsSource = ClassHelper.AppData.context.Category.ToList();
             LVItems.ItemsSource = ClassHelper.AppData.context.Dish.ToList();
+
+           
         }
 
     }

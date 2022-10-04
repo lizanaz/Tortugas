@@ -73,61 +73,91 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="175"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="175"/>
         </Grid.ColumnDefinitions>
 
+        
+
+        <!--<ListView x:Name="LVCategory"
+                  Grid.Column="1"
+                  Grid.Row="1"
+                  Background="#FF091E05"
+                  BorderBrush="#FF091E05"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                        <StackPanel Grid.Column="1"
+                            Grid.Row="1"
+                            Grid.RowSpan="3">
+
+                               <TextBlock Text="{Binding Path= Category}"
+                               Foreground="#FFF9B9C3"
+                               FontSize="20"
+                               VerticalAlignment="Top"
+                               FontFamily="Helvetica"
+                               />
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+
+        </ListView>-->
+
         <StackPanel Grid.Column="1"
-                    Grid.Row="1"
-                    Grid.RowSpan="3">
+                  Grid.Row="1">
 
             <TextBlock Text="Салаты"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   FontFamily="Helvetica"
-                   />
+                       FontSize="20"
+                       Foreground="#F9B9C3"
+                       FontFamily="Helvetica"/>
 
             <TextBlock Text="Закуски"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   Margin="0 16"
-                   FontFamily="Helvetica"/>
+                       FontSize="20"
+                       Foreground="#F9B9C3"
+                       FontFamily="Helvetica"
+                       Margin="0 20"/>
             
             <TextBlock Text="Горячее"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   FontFamily="Helvetica"/>
-            
+                       FontSize="20"
+                       Foreground="#F9B9C3"
+                       FontFamily="Helvetica"
+                       />
+
             <TextBlock Text="Супы"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   Margin="0 16"
-                   FontFamily="Helvetica"/>
-            
+                       FontSize="20"
+                       Foreground="#F9B9C3"
+                       FontFamily="Helvetica"
+                       Margin="0 20"/>
+
             <TextBlock Text="Паста"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   FontFamily="Helvetica"/>
-            
+                       FontSize="20"
+                       Foreground="#F9B9C3"
+                       FontFamily="Helvetica"
+                       />
+
             <TextBlock Text="Десерты"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   Margin="0 16"
-                   FontFamily="Helvetica"/>
-            
+                       FontSize="20"
+                       Foreground="#F9B9C3"
+                       FontFamily="Helvetica"
+                       Margin="0 20"/>
+
             <TextBlock Text="Напитки"
-                   Foreground="#FFF9B9C3"
-                   FontSize="20"
-                   VerticalAlignment="Top"
-                   FontFamily="Helvetica"/>
+                       FontSize="20"
+                       Foreground="#F9B9C3"
+                       FontFamily="Helvetica"
+                       />
+
 
         </StackPanel>
 
@@ -157,13 +187,13 @@
 
                     <Border Grid.Column="2"
                             Grid.Row="1"
-                            Width="196"
-                            Height="197"
+                            Width="268"
+                            Height="269"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Margin="0 2 20 32"
                             Background="#FF5C695A"
-                            CornerRadius="5"
+                            CornerRadius="10"
                            >
 
                         <Grid>
@@ -172,8 +202,8 @@
                             <StackPanel Background="#FF5C695A"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Top"
-                                        Width="196"
-                                        Height="181">
+                                        Width="268"
+                                        Height="269">
 
                                 <Image Width="130"
                                        Height="104"
@@ -187,25 +217,38 @@
                                            FontSize="16"
                                            HorizontalAlignment="Left"
                                            Foreground="#FFF9B9C3"
-                                           FontFamily="Alegreya Sans SC"/>
+                                           Width="220"
+                                           TextWrapping="Wrap"/>
+
+                                <TextBlock Text="{Binding Path=Description}"
+                                           Margin="24 8 0 0"
+                                           FontSize="12"
+                                           HorizontalAlignment="Left"
+                                           Foreground="#F3C6CD"
+                                           Width="220"
+                                           TextWrapping="Wrap"/>
 
                                 <TextBlock Text="{Binding Path=Price}"
                                            Foreground="#FFF9B9C3"
-                                           FontFamily="Alegreya Sans SC"
-                                           FontSize="16"
+                                           FontFamily="Helvetica"
+                                           FontSize="15"
                                            HorizontalAlignment="Left"
                                            Margin="24 8 0 0"/>
 
                             </StackPanel>
 
                             <Button Height="24"
-                                Width="24"
-                                VerticalAlignment="Bottom"
-                                HorizontalAlignment="Right"
-                                Margin="148 136 24 37"
-                                Background="#FF004F2D" 
-                                Style="{DynamicResource BtnAddCorner}"
-                                BorderBrush="#FF004F2D"/>   
+                                    Width="24"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Right"
+                                    Margin="216 230 24 16"
+                                    Background="#FF004F2D" 
+                                    Style="{DynamicResource BtnAddCorner}"
+                                    BorderBrush="#FF004F2D"
+                                    FontFamily="Helvetica"
+                                    Content="+"
+                                    FontSize="20"
+                                    Foreground="#FFD87CAC"/>   
 
                         </Grid>
 
@@ -222,7 +265,7 @@
                    Margin="0 10"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Right"
-                   FontFamily="Bookman Old Style"/>
+                   FontFamily="Helvetica"/>
         
 
     </Grid>

@@ -9,21 +9,17 @@
         WindowStartupLocation="CenterScreen">
     <Grid Background="#FF091E05">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="175"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="175"/>
-            
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="281*"/>
+            <ColumnDefinition Width="464*"/>
+            <ColumnDefinition Width="130"/>
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+
 
         </Grid.RowDefinitions>
 
@@ -31,10 +27,98 @@
         <TextBlock Text="Оформление заказа"
                    Foreground="#FFD87CAC"
                    FontSize="32"
+                   VerticalAlignment="Top"
                    HorizontalAlignment="Center"
-                   Margin="48"  Grid.ColumnSpan="7"/>
+                   Margin="133.586,48,316.2,0"  
+                   Grid.ColumnSpan="2" 
+                   Grid.Column="2"/>
+
+        <TextBlock Grid.Row="0"
+                   Grid.Column="3"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left"
+                   FontSize="20"
+                   Foreground="#F9B9C3"
+                   FontFamily="Helvetica"
+                   Text="Цена" Margin="0.2,0,0,0.2"/>
+
+        <TextBlock Grid.Row="0"
+                   Grid.Column="3"
+                   VerticalAlignment="Bottom"
+                   FontSize="20"
+                   Foreground="#F9B9C3"
+                   FontFamily="Helvetica"
+                   Text="Количество"
+                   Margin="93.2,0,249.2,0.2"
+                   />
+
+        <TextBlock Grid.Row="0"
+                   Grid.Column="3"
+                   VerticalAlignment="Bottom"
+                   FontSize="20"
+                   Foreground="#F9B9C3"
+                   FontFamily="Helvetica"
+                   Text="Сумма"
+                   Margin="243.2,0,129.2,0.2" Grid.ColumnSpan="2"/>
+
+
+        <Grid Grid.Row="1"
+                   Grid.Column="1"
+              Grid.ColumnSpan="2">
+
+            
+
+            <StackPanel >
+
+            <TextBlock Text="Салат"
+                       Foreground="#F9B9C3"
+                       FontFamily="Helvetica"
+                       FontSize="24"
+                       Margin="123 0 0 0"/>
+
+            <TextBlock Text="300 гр."
+                       Foreground="#F9B9C3"
+                       FontFamily="Helvetica"
+                       FontSize="20"
+                       Margin="123 8 0 0"/>
+
+          </StackPanel>
+
+            <Image Source="E:\Tortugas\TortugasNazarova\Resource\salad1.jpg"
+                   Width="99"
+                   Height="79"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"/>
+
+            
+
+        </Grid>
 
         
+
+        
+            <!--<Line 
+                        Margin="100"
+                        X1="0" Y1="0" X2="700" Y2="0" 
+                          StrokeThickness="50"
+                          Fill="#D87CAC"
+                          Grid.Column="1"
+                          Grid.Row="1"
+                          Grid.ColumnSpan="3"/>-->
+
+        <WrapPanel Grid.Row="1"
+                   Grid.Column="3">
+            
+            <TextBlock Text="500 р."
+                       Foreground="#F9B9C3"
+                       FontFamily="Helvetica"
+                       FontSize="20"
+                       />
+            
+        </WrapPanel>
+
+
+
 
 
     </Grid>

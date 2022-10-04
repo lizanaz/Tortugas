@@ -99,19 +99,76 @@
                                 Width="74"
                                  Margin="50"
                                  Background="#FF004F2D" 
-                                 BorderBrush="#FF004F2D"/>
+                                 BorderBrush="#FF004F2D"
+                        Content="4"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
 
                 <Button Height="60"
                                 Width="60"
                                  Margin="0 100 0 0"
                                  Background="#FF004F2D"
-                        BorderBrush="#FF004F2D"/>
+                        BorderBrush="#FF004F2D"
+                        Content="2"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
 
                 <Button Height="60"
                                 Width="60"
                                  Margin="0 32"
                                  Background="#FF004F2D"
-                        BorderBrush="#FF004F2D"/>
+                        BorderBrush="#FF004F2D"
+                        Content="2"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+
+
+
+            </StackPanel>
+
+        </Border>
+
+        <Border Height="500" Width="209" 
+                    Grid.Column="4">
+            <StackPanel >
+                <Button Height="74"
+                                Width="74"
+                                 Margin="50"
+                                 Background="#FF004F2D" 
+                                 BorderBrush="#FF004F2D"
+                        Content="4"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+
+                <Button Height="60"
+                                Width="60"
+                                 Margin="0 100 0 0"
+                                 Background="#FF004F2D"
+                        BorderBrush="#FF004F2D"
+                        Content="2"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+
+                <Button Height="60"
+                                Width="60"
+                                 Margin="0 32"
+                                 Background="#FF004F2D"
+                                BorderBrush="#FF004F2D"
+                        Content="2"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
 
 
 
@@ -136,7 +193,12 @@
                      BorderBrush="#FF004F2D"
                     Background="#FF004F2D"
                      Margin="0 8 0 0"
-                    Style="{DynamicResource ButtonEclipse}"/>
+                    Style="{DynamicResource ButtonEclipse}"
+                        Content="4"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
                 
                 <Button Style="{DynamicResource ButtonEclipse}"
                         Height="25"
@@ -153,7 +215,60 @@
                     Height="73"
                     Margin="0 120 0 0"
                     Background="#FF004F2D"
-                    BorderBrush="#FF004F2D"/>
+                    BorderBrush="#FF004F2D"
+                    Content="10"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Height="600" Width="209" 
+                    Margin="0 50 0 0">
+
+            <StackPanel Width="209" >
+
+                <Button Style="{DynamicResource ButtonEclipse}"
+                        Height="25"
+                        Width="25"
+                        BorderBrush="#FFF9B9C3"
+                        Background="#FFF9B9C3"
+                        Margin="0 200 0 0"/>
+
+                <Button Height="55"
+                     Width="55"
+                     BorderBrush="#FF004F2D"
+                    Background="#FF004F2D"
+                     Margin="0 8 0 0"
+                    Style="{DynamicResource ButtonEclipse}"
+                        Content="4"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+
+                <Button Style="{DynamicResource ButtonEclipse}"
+                        Height="25"
+                        Width="25"
+                        BorderBrush="#FFF9B9C3"
+                        Background="#FFF9B9C3"
+                        Margin="0 8 0 0"/>
+
+            </StackPanel>
+
+
+
+            <Button Width="120"
+                    Height="73"
+                    Margin="0 120 0 0"
+                    Background="#FF004F2D"
+                    BorderBrush="#FF004F2D"
+                    Content="10"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
 
         </StackPanel>
 
@@ -168,21 +283,18 @@
                 Style="{DynamicResource ButtonEclipse}"
                 Background="#FF004F2D"
                 BorderBrush="#FF004F2D" 
-                Click="btnNext_Click"/>
+                Click="btnNext_Click"
+                    Content="12"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
             
         </StackPanel>
 
         
 
-        <!--<Button x:Name="btnNext" 
-                Click="btnNext_Click"
-                Grid.Row="3"
-                Background="#FFD87CAC"
-                Height="40"
-                Width="150" Grid.ColumnSpan="6"/>-->
-        <!--<Ellipse Width="285"
-                     Height="86"
-                     Fill="#FF004F2D"/>-->
+      
 
     </Grid>
 </Window>
