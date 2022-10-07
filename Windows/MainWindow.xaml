@@ -104,7 +104,8 @@
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                        Click="btn41"/>
 
                 <Button Height="60"
                                 Width="60"
@@ -115,7 +116,8 @@
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                        Click="btn21"/>
 
                 <Button Height="60"
                                 Width="60"
@@ -126,7 +128,8 @@
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                        Click="btn22"/>
 
 
 
@@ -146,7 +149,8 @@
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                        Click="btn44"/>
 
                 <Button Height="60"
                                 Width="60"
@@ -157,7 +161,8 @@
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                        Click="btn23"/>
 
                 <Button Height="60"
                                 Width="60"
@@ -168,7 +173,8 @@
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                        Click="btn24"/>
 
 
 
@@ -198,8 +204,9 @@
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
-                
+                    VerticalContentAlignment="Center"
+                        Click="btn42"/>
+
                 <Button Style="{DynamicResource ButtonEclipse}"
                         Height="25"
                         Width="25"
@@ -220,7 +227,8 @@
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                    Click="btn101"/>
 
         </StackPanel>
 
@@ -246,7 +254,8 @@
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                        Click="btn43"/>
 
                 <Button Style="{DynamicResource ButtonEclipse}"
                         Height="25"
@@ -268,7 +277,8 @@
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+                    VerticalContentAlignment="Center"
+                    Click="btn102"/>
 
         </StackPanel>
 
@@ -284,6 +294,7 @@
                 Background="#FF004F2D"
                 BorderBrush="#FF004F2D" 
                 Click="btnNext_Click"
+                    
                     Content="12"
                     FontSize="20"
                     Foreground="#FFF9B9C3"

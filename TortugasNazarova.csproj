@@ -66,25 +66,25 @@
     </ApplicationDefinition>
     <Compile Include="ClassHelper\AppData.cs" />
     <Compile Include="EF\Category.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Client.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Dish.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Employee.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Gender.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Ingredient.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\IngredientDish.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -116,23 +116,38 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model2.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EF\Model3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model3.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model3.edmx</DependentUpon>
+    </Compile>
     <Compile Include="EF\Order.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\OrderDish.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Reserved.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sysdiagrams.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Table.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CardPage.xaml.cs">
-      <DependentUpon>CardPage.xaml</DependentUpon>
+    <Compile Include="Windows\CardWindow.xaml.cs">
+      <DependentUpon>CardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
@@ -140,7 +155,7 @@
     <Compile Include="Windows\OrderWindow.xaml.cs">
       <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\CardPage.xaml">
+    <Page Include="Windows\CardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,6 +212,13 @@
     <None Include="EF\Model2.edmx.diagram">
       <DependentUpon>Model2.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="EF\Model3.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model3.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\Model3.edmx.diagram">
+      <DependentUpon>Model3.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -226,6 +248,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model2.edmx</DependentUpon>
       <LastGenOutput>Model2.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\Model3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model3.edmx</DependentUpon>
+      <LastGenOutput>Model3.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\Model3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model3.edmx</DependentUpon>
+      <LastGenOutput>Model3.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

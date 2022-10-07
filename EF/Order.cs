@@ -27,8 +27,8 @@ namespace TortugasNazarova.EF
         public int EmployeeId { get; set; }
     
         public virtual Employee Employee { get; set; }
-        public virtual Table Table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDish> OrderDish { get; set; }
+        public virtual Table Table { get; set; }
     }
 }
