@@ -105,7 +105,7 @@
             </ListView>
 
         <TextBlock x:Name="tbClose"
-                   Text="X"
+                   Text="✕"
                    FontFamily="Helvetica"
                    FontSize="20"
                    Foreground="#D87CAC"

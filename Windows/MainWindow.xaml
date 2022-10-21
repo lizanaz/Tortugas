@@ -19,10 +19,10 @@
         </Style>
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#006439"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#006439"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#005530"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#005530"/>
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
@@ -64,6 +64,7 @@
             </Setter>
         </Style>
     </Window.Resources>
+    
     <Grid Background="#FF091E05">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="175"/>
@@ -165,7 +166,7 @@
                         Click="btn23"/>
 
                 <Button Height="60"
-                                Width="60"
+                        Width="60"
                                  Margin="0 32"
                                  Background="#FF004F2D"
                                 BorderBrush="#FF004F2D"
@@ -174,7 +175,8 @@
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
-                        Click="btn24"/>
+                        Click="btn24"
+/>
 
 
 
@@ -182,19 +184,41 @@
 
         </Border>
 
-        <StackPanel Grid.Column="2" Height="600" Width="209" 
-                    Margin="0 50 0 0">
+        <StackPanel Grid.Column="2"  Width="209" 
+                    Margin="0 350 0 0">
             
-            <StackPanel Width="209" >
+            <Button Height="55"
+                    Width="55"
+                    BorderBrush="#FF004F2D"
+                    Background="#FF004F2D"
+                    Margin="0 8 0 0"
+                    Style="{DynamicResource ButtonEclipse}"
+                    Content="4"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="btn42"/>
 
-                <Button Style="{DynamicResource ButtonEclipse}"
-                        Height="25"
-                        Width="25"
-                        BorderBrush="#FFF9B9C3"
-                        Background="#FFF9B9C3"
-                        Margin="0 200 0 0"/>
+           
+            <Button Width="120"
+                    Height="73"
+                    Margin="0 170 0 0"
+                    Background="#FF004F2D"
+                    BorderBrush="#FF004F2D"
+                    Content="10"
+                    FontSize="20"
+                    Foreground="#FFF9B9C3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="btn101"/>
 
-                <Button Height="55"
+        </StackPanel>
+
+        <StackPanel Grid.Column="3"  Width="209" 
+                    Margin="0 350 0 0">
+
+            <Button Height="55"
                      Width="55"
                      BorderBrush="#FF004F2D"
                     Background="#FF004F2D"
@@ -207,20 +231,10 @@
                     VerticalContentAlignment="Center"
                         Click="btn42"/>
 
-                <Button Style="{DynamicResource ButtonEclipse}"
-                        Height="25"
-                        Width="25"
-                        BorderBrush="#FFF9B9C3"
-                        Background="#FFF9B9C3"
-                        Margin="0 8 0 0"/>
-
-            </StackPanel>
-            
-
 
             <Button Width="120"
                     Height="73"
-                    Margin="0 120 0 0"
+                    Margin="0 170 0 0"
                     Background="#FF004F2D"
                     BorderBrush="#FF004F2D"
                     Content="10"
@@ -232,80 +246,27 @@
 
         </StackPanel>
 
-        <StackPanel Grid.Column="3" Height="600" Width="209" 
-                    Margin="0 50 0 0">
-
-            <StackPanel Width="209" >
-
-                <Button Style="{DynamicResource ButtonEclipse}"
-                        Height="25"
-                        Width="25"
-                        BorderBrush="#FFF9B9C3"
-                        Background="#FFF9B9C3"
-                        Margin="0 200 0 0"/>
-
-                <Button Height="55"
-                     Width="55"
-                     BorderBrush="#FF004F2D"
-                    Background="#FF004F2D"
-                     Margin="0 8 0 0"
-                    Style="{DynamicResource ButtonEclipse}"
-                        Content="4"
-                    FontSize="20"
-                    Foreground="#FFF9B9C3"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                        Click="btn43"/>
-
-                <Button Style="{DynamicResource ButtonEclipse}"
-                        Height="25"
-                        Width="25"
-                        BorderBrush="#FFF9B9C3"
-                        Background="#FFF9B9C3"
-                        Margin="0 8 0 0"/>
-
-            </StackPanel>
-
-
-
-            <Button Width="120"
-                    Height="73"
-                    Margin="0 120 0 0"
-                    Background="#FF004F2D"
-                    BorderBrush="#FF004F2D"
-                    Content="10"
-                    FontSize="20"
-                    Foreground="#FFF9B9C3"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    Click="btn102"/>
-
-        </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.ColumnSpan="2"
                     Height="100" Width="418"
                     VerticalAlignment="Top"
                     Margin="0 170 0 0">
-            
+
             <Button Grid.ColumnSpan="6"
-                Height="86"
-                Width="285" 
-                Style="{DynamicResource ButtonEclipse}"
-                Background="#FF004F2D"
-                BorderBrush="#FF004F2D" 
-                Click="btnNext_Click"
-                    
+                    Height="86"
+                    Width="285" 
+                    Style="{DynamicResource ButtonEclipse}"
+                    Background="#FF004F2D"
+                    BorderBrush="#FF004F2D" 
+                    Click="btn12"
                     Content="12"
                     FontSize="20"
                     Foreground="#FFF9B9C3"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"/>
-            
+
         </StackPanel>
 
-        
-
-      
 
     </Grid>
 </Window>

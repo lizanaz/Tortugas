@@ -79,8 +79,6 @@
             <ColumnDefinition Width="175"/>
         </Grid.ColumnDefinitions>
 
-        
-
         <ListView x:Name="LVCategory"
                   Grid.Column="1"
                   Grid.Row="1"
@@ -100,28 +98,22 @@
 
                     <StackPanel>
 
-                        <TextBlock Text="{Binding Path= NameCateg}"
+                        <TextBlock Text="{Binding Path= NameCat}"
                                Foreground="#FFF9B9C3"
                                FontSize="20"
                                VerticalAlignment="Top"
                                FontFamily="Helvetica"
                                Width="100"
-                                   Margin="0 16 0 0"
+                               Margin="0 16 0 0"
                                />
 
                     </StackPanel>
 
-
-
-
                 </DataTemplate>
             </ListView.ItemTemplate>
-
-
+            
         </ListView>
-
-      
-
+    
         <TextBlock Text="Категории"
                    Foreground="#FFD87CAC"
                    FontSize="24"
@@ -209,7 +201,7 @@
                                     Background="#FF004F2D" 
                                     Style="{DynamicResource BtnAddCorner}"
                                     BorderBrush="#FF004F2D"
-                                    FontFamily="Helvetica"
+                                    FontFamily="Arial"
                                     Content="+"
                                     FontSize="20"
                                     Foreground="#FFD87CAC"
@@ -233,9 +225,9 @@
                    HorizontalAlignment="Right"
                    FontFamily="Helvetica"/>
 
-        <Frame x:Name="frame"
+        <!--<Frame x:Name="frame"
                Grid.Column="2"
-               Grid.Row="1"/>
+               Grid.Row="1"/>-->
 
     </Grid>
 </Window>

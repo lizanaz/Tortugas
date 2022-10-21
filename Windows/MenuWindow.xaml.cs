@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TortugasNazarova.EF;
 
 namespace TortugasNazarova.Windows
@@ -21,11 +11,11 @@ namespace TortugasNazarova.Windows
     public partial class MenuWindow : Window
     {
         public static int OrderId;
-        
+
         public MenuWindow()
         {
             InitializeComponent();
-            int Count=6;
+            //int Count=6;
 
             LVCategory.ItemsSource = ClassHelper.AppData.context.Category.ToList();
 
@@ -49,15 +39,13 @@ namespace TortugasNazarova.Windows
         private void LVItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var dish = LVItems.SelectedItem as Dish;
-            if (dish!=null)
+            if (dish != null)
             {
                 CardWindow cardWindow = new CardWindow(dish.Id);
                 this.Opacity = 0.2;
                 cardWindow.ShowDialog();
                 this.Opacity = 1;
             }
-               
-            
 
         }
     }
