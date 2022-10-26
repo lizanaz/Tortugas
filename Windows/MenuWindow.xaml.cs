@@ -5,30 +5,19 @@ using TortugasNazarova.EF;
 
 namespace TortugasNazarova.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для MenuWindow.xaml
-    /// </summary>
+
     public partial class MenuWindow : Window
     {
-        public static int OrderId;
+        public static int dishId;
+        //Dish dish;
 
         public MenuWindow()
         {
             InitializeComponent();
-            //int Count=6;
 
             LVCategory.ItemsSource = ClassHelper.AppData.context.Category.ToList();
-
-            //Order order = new Order();
-            //order.TableId = MainWindow.Numb;
-            //order.OrderDate = DateTime.Now;
-            //order.FinalCost = 0;
-            //order.EmployeeId = 5;
-            //order.Id = Count+1;
-            //ClassHelper.AppData.context.Order.Add(order);
-            //ClassHelper.AppData.context.SaveChanges();
-            //order.Id = OrderId;
         }
+
 
         private void LVCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -38,14 +27,38 @@ namespace TortugasNazarova.Windows
 
         private void LVItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var dish = LVItems.SelectedItem as Dish;
-            if (dish != null)
+            var Dish = LVItems.SelectedItem as Dish;
+            dishId = Dish.Id;
+            if (Dish != null)
             {
-                CardWindow cardWindow = new CardWindow(dish.Id);
+                CardWindow cardWindow = new CardWindow(Dish.Id);
                 this.Opacity = 0.2;
                 cardWindow.ShowDialog();
                 this.Opacity = 1;
             }
+        }
+
+        private void TextBlock_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            OrderWindow orderWindow = new OrderWindow();
+            orderWindow.Show();
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //decimal cost = ClassHelper.AppData.context.Dish.Where(i => i.Id == dishId).First().Price;
+            OrderDish orderDish = new OrderDish()
+            {
+                OrderId = MainWindow.OrderId,
+                DishId = dishId,
+                Qty = 1
+            };
+
+            ClassHelper.AppData.context.OrderDish.Add(orderDish);
+            ClassHelper.AppData.context.SaveChanges();
+
+            MessageBox.Show("Блюдо добавлено");
 
         }
     }

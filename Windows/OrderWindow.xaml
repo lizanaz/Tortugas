@@ -7,12 +7,69 @@
         mc:Ignorable="d"
         Title="OrderWindow" Height="834" Width="1194"
         WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border"  CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid Background="#FF091E05">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="281*"/>
-            <ColumnDefinition Width="464*"/>
             <ColumnDefinition Width="130"/>
 
         </Grid.ColumnDefinitions>
@@ -33,71 +90,39 @@
                    Grid.ColumnSpan="2" 
                    Grid.Column="2"/>
 
-        <TextBlock Grid.Row="0"
-                   Grid.Column="3"
+
+        <WrapPanel Grid.Row="0"
+                   Grid.Column="2"
                    VerticalAlignment="Bottom"
+                  >
+
+            <TextBlock Margin="420 0 0 0"
                    HorizontalAlignment="Left"
                    FontSize="20"
                    Foreground="#F9B9C3"
                    FontFamily="Helvetica"
-                   Text="Цена" Margin="0.2,0,0,0.2"/>
+                   Text="Цена" />
 
-        <TextBlock Grid.Row="0"
-                   Grid.Column="3"
-                   VerticalAlignment="Bottom"
+            <TextBlock Margin="50 0 0 0"
                    FontSize="20"
                    Foreground="#F9B9C3"
                    FontFamily="Helvetica"
                    Text="Количество"
-                   Margin="93.2,0,249.2,0.2"
                    />
 
-        <TextBlock Grid.Row="0"
-                   Grid.Column="3"
-                   VerticalAlignment="Bottom"
+            <TextBlock Margin="50 0 0 0"
                    FontSize="20"
                    Foreground="#F9B9C3"
                    FontFamily="Helvetica"
                    Text="Сумма"
-                   Margin="243.2,0,129.2,0.2" Grid.ColumnSpan="2"/>
+                   Grid.ColumnSpan="2"/>
+
+        </WrapPanel>
+
+       
 
 
-        <Grid Grid.Row="1"
-                   Grid.Column="1"
-              Grid.ColumnSpan="2">
-
-            
-
-            <StackPanel >
-
-            <TextBlock Text="Салат"
-                       Foreground="#F9B9C3"
-                       FontFamily="Helvetica"
-                       FontSize="24"
-                       Margin="123 0 0 0"/>
-
-            <TextBlock Text="300 гр."
-                       Foreground="#F9B9C3"
-                       FontFamily="Helvetica"
-                       FontSize="20"
-                       Margin="123 8 0 0"/>
-
-          </StackPanel>
-
-            <Image Source="F:\Tortugas\TortugasNazarova\Resource\salad1.jpg"
-                   Width="99"
-                   Height="79"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"/>
-
-            
-
-        </Grid>
-
-        
-
-        
-            <!--<Line 
+        <!--<Line 
                         Margin="100"
                         X1="0" Y1="0" X2="700" Y2="0" 
                           StrokeThickness="50"
@@ -106,16 +131,140 @@
                           Grid.Row="1"
                           Grid.ColumnSpan="3"/>-->
 
-        <WrapPanel Grid.Row="1"
-                   Grid.Column="3">
-            
-            <TextBlock Text="500 р."
-                       Foreground="#F9B9C3"
-                       FontFamily="Helvetica"
-                       FontSize="20"
-                       />
-            
-        </WrapPanel>
+        <ListView x:Name="LVCategory"
+                  Grid.Column="2"
+                  Grid.Row="1"
+                  Background="#FF091E05"
+                  BorderThickness="0"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  Margin="0 20 0 0">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+
+                  <Grid>
+
+                    <WrapPanel >
+
+                            <Image Source="{Binding Path=Dish.PhotoPath}"
+                               Width="99"
+                               Height="79"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               />
+
+                            <TextBlock Text="{Binding Path=Dish.Name}"
+                               Foreground="#F9B9C3"
+                               FontFamily="Helvetica"
+                               FontSize="24"
+                               Margin="24 0 0 0"/>
+
+                            <TextBlock Text="{Binding Path=Dish.Price}"
+                               Foreground="#F9B9C3"
+                               FontFamily="Helvetica"
+                               FontSize="20"
+                                   Margin="265 30 0 0"/>
+
+                            <Button Height="24"
+                                Margin="43 0 0 0"
+                                                Width="24"
+                                                Background="#FF004F2D" 
+                                                BorderThickness="0"
+                                                FontFamily="Arial"
+                                                Content="−"
+                                                FontSize="20"
+                                                Foreground="#FFD87CAC"
+                                Style="{DynamicResource ButtonStyle1}"/>
+
+                            <TextBlock Text="{Binding Path=Qty}"
+                               Foreground="#F9B9C3"
+                               FontFamily="Helvetica"
+                               FontSize="20"
+                               Margin="20 29 0 0 "/>
+
+                            <Button Height="24"
+                                                Width="24"
+                                                Background="#FF004F2D" 
+                                                BorderThickness="0"
+                                                FontFamily="Arial"
+                                                Content="+"
+                                                FontSize="20"
+                                                Foreground="#FFD87CAC"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center" 
+                                Style="{DynamicResource ButtonStyle1}"
+                                Margin="20 0 0 0 "/>
+
+                            <TextBlock Text="{Binding Path=Order.FinalCost}"
+                               Foreground="#F9B9C3"
+                               FontFamily="Helvetica"
+                               FontSize="20"
+                               Margin="59 30 0 0"/>
+
+                    </WrapPanel>
+
+                            <TextBlock Text="{Binding Path=Dish.Weight}"
+                                   Foreground="#F9B9C3"
+                                   FontFamily="Helvetica"
+                                   FontSize="16"
+                                   Margin="122 40 500 0"
+                                   VerticalAlignment="Top"/>
+
+                </Grid>
+
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <Button Grid.Column="2"
+                Grid.Row="1"
+                Width="145"
+                Height="41"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Content="Подтвердить"
+                Background="#004F2D"
+                Foreground="#D87CAC"
+                FontSize="16"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                BorderThickness="0"
+                Style="{DynamicResource ButtonStyle1}"
+                Margin="0 0 0 40"/>
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="2"
+                    Text="Итого: "
+                   FontSize="22"
+                   Foreground="#D87CAC"
+                   VerticalAlignment="Bottom"
+                   Margin="420 0 150 48"/>
+
+        <Button Grid.Column="2"
+                Grid.Row="1"
+                Width="145"
+                Height="41"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Background="#004F2D"
+                Foreground="#D87CAC"
+                Style="{DynamicResource ButtonStyle1}"
+                BorderThickness="0"
+                Content="Назад"
+                FontSize="16"
+                Margin="0 0 0 40"
+                x:Name="BtnBack"
+                Click="BtnBack_Click"/>
+
 
 
 

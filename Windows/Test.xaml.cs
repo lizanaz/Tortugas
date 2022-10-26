@@ -15,22 +15,13 @@ using System.Windows.Shapes;
 namespace TortugasNazarova.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для OrderWindow.xaml
+    /// Логика взаимодействия для Test.xaml
     /// </summary>
-    public partial class OrderWindow : Window
+    public partial class Test : Window
     {
-        public OrderWindow()
+        public Test()
         {
             InitializeComponent();
-        }
-
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
-        {
-
-            MenuWindow menuWindow = new MenuWindow();
-            menuWindow.ShowDialog();
-            this.Close();
-
         }
     }
 }

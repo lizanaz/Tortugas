@@ -1,17 +1,30 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using TortugasNazarova.EF;
 using TortugasNazarova.Windows;
 
 
 namespace TortugasNazarova
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
+        public static int Numb { get; set; }
+        public static int OrderId = 6;
 
-        public static int Numb;
-
+        public void OrderAdd()
+        {
+            Order order = new Order();
+            order.TableId = Numb;
+            order.OrderDate = DateTime.Now;
+            order.FinalCost = 0;
+            order.EmployeeId = 5;
+            //MenuWindow menuWindow = new MenuWindow(order.Id);
+            ClassHelper.AppData.context.Order.Add(order);
+            ClassHelper.AppData.context.SaveChanges();
+            OrderId = order.Id;
+            MessageBox.Show(OrderId.ToString());
+        }
 
         public MainWindow()
         {
@@ -22,6 +35,7 @@ namespace TortugasNazarova
         {
             Numb = 11;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }
@@ -30,6 +44,7 @@ namespace TortugasNazarova
         {
             Numb = 1;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }
@@ -38,6 +53,7 @@ namespace TortugasNazarova
         {
             Numb = 2;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }
@@ -46,6 +62,7 @@ namespace TortugasNazarova
         {
             Numb = 3;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }
@@ -54,6 +71,7 @@ namespace TortugasNazarova
         {
             Numb = 4;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }
@@ -62,6 +80,7 @@ namespace TortugasNazarova
         {
             Numb = 5;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }
@@ -70,6 +89,7 @@ namespace TortugasNazarova
         {
             Numb = 6;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }
@@ -78,6 +98,7 @@ namespace TortugasNazarova
         {
             Numb = 7;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }
@@ -86,6 +107,7 @@ namespace TortugasNazarova
         {
             Numb = 8;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }
@@ -94,6 +116,7 @@ namespace TortugasNazarova
         {
             Numb = 9;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }
@@ -102,6 +125,7 @@ namespace TortugasNazarova
         {
             Numb = 10;
             MenuWindow menuWindow = new MenuWindow();
+            OrderAdd();
             menuWindow.Show();
             this.Close();
         }

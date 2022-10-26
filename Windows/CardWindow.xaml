@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:TortugasNazarova.Windows"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="CardWindow" Height="267" Width="466"
+        Title="CardWindow" Height="280" Width="470"
         WindowStyle="None">
-    <Grid>
+    <Grid Background="#FF091E05">
 
         
             <ListView x:Name="LVCard"
@@ -41,62 +41,56 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Image Source="{Binding Path=PhotoPath }"
-                           Width="221"
-                           Height="177"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Center"
-                           Margin="32,40,0,50" 
-                           Grid.ColumnSpan="2"
-                           Grid.Column="0"/>
+                                   Width="221"
+                                   Height="177"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="32,40,0,50" 
+                                   Grid.ColumnSpan="2"
+                                   Grid.Column="0"/>
 
-                                <StackPanel Grid.Column="1" >
+                            <StackPanel Grid.Column="1" >
 
-                                    <TextBlock Text="{Binding Path= Name}"
-                           FontSize="20"
-                           Foreground="#F9B9C3"
-                           FontFamily="Helvetica"
-                           Margin="52 40 0 0"
-                           TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Path= Name}"
+                                       FontSize="20"
+                                       Foreground="#F9B9C3"
+                                       FontFamily="Helvetica"
+                                       Margin="52 40 0 0"
+                                       TextWrapping="Wrap"/>
 
-                                    <TextBlock Text="{Binding Path= Description}"
-                           FontSize="16"
-                           Foreground="#F9B9C3"
-                           FontFamily="Helvetica"
-                           Margin="20 16 0 0"
-                           Width="149"
-                           MaxHeight="57"
-                           TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Path= Description}"
+                                       FontSize="10"
+                                       Foreground="#F9B9C3"
+                                       FontFamily="Helvetica"
+                                       Margin="27 16 0 0"
+                                       Width="149"
+                                       MaxHeight="57"
+                                       TextWrapping="Wrap"/>
 
-                                    <TextBlock Text="{Binding Path= Price}"
-                           FontSize="16"
-                           Foreground="#F9B9C3"
-                           FontFamily="Helvetica"
-                           Margin="52 24 0 0"/>
+                                <TextBlock Text="{Binding Path= Price}"
+                                       FontSize="16"
+                                       Foreground="#F9B9C3"
+                                       FontFamily="Helvetica"
+                                       Margin="52 24 0 0"/>
 
-                                    <Button Content="В корзину"
-                        Width="112"
-                        Height="31"
-                        Background="#004F2D"
-                        BorderBrush="#004F2D"
-                        Margin="52 24 0 0"
-                        FontFamily="Helvetica"
-                        FontSize="16"
-                        Foreground="#D87CAC"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        HorizontalAlignment="Left"/>
+                                <Button Content="В корзину"
+                                        Width="112"
+                                        Height="31"
+                                        Background="#004F2D"
+                                        BorderThickness="0"
+                                        Margin="52 24 0 0"
+                                        FontFamily="Helvetica"
+                                        FontSize="16"
+                                        Foreground="#D87CAC"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        HorizontalAlignment="Left"/>
 
-
-
-
-                                </StackPanel>
-                                
-                                
+                            </StackPanel>
+    
                             </Grid>
 
                         </StackPanel>
-
-
 
                     </DataTemplate>
                 </ListView.ItemTemplate>

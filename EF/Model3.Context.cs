@@ -13,10 +13,10 @@ namespace TortugasNazarova.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EntitiesNovits : DbContext
+    public partial class EntitiesNov : DbContext
     {
-        public EntitiesNovits()
-            : base("name=EntitiesNovits")
+        public EntitiesNov()
+            : base("name=EntitiesNov")
         {
         }
     
@@ -25,6 +25,7 @@ namespace TortugasNazarova.EF
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Dish> Dish { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
@@ -36,6 +37,5 @@ namespace TortugasNazarova.EF
         public virtual DbSet<Reserved> Reserved { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Table> Table { get; set; }
-        public virtual DbSet<Category> Category { get; set; }
     }
 }
