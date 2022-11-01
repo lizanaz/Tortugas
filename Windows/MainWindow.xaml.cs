@@ -10,7 +10,8 @@ namespace TortugasNazarova
     public partial class MainWindow : Window
     {
         public static int Numb { get; set; }
-        public static int OrderId = 6;
+        public static int OrderId ;
+        public static Order Orders;
 
         public void OrderAdd()
         {
@@ -19,11 +20,11 @@ namespace TortugasNazarova
             order.OrderDate = DateTime.Now;
             order.FinalCost = 0;
             order.EmployeeId = 5;
-            //MenuWindow menuWindow = new MenuWindow(order.Id);
+            Orders = order;
             ClassHelper.AppData.context.Order.Add(order);
             ClassHelper.AppData.context.SaveChanges();
             OrderId = order.Id;
-            MessageBox.Show(OrderId.ToString());
+            //MessageBox.Show(OrderId.ToString());
         }
 
         public MainWindow()

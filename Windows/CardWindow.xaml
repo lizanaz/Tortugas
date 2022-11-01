@@ -19,7 +19,7 @@
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ScrollViewer.VerticalScrollBarVisibility="Disabled"
                    Width="460"
-                      Height="267">
+                      Height="267" d:ItemsSource="{d:SampleData ItemCount=5}">
 
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -84,7 +84,8 @@
                                         Foreground="#D87CAC"
                                         HorizontalContentAlignment="Center"
                                         VerticalContentAlignment="Center"
-                                        HorizontalAlignment="Left"/>
+                                        HorizontalAlignment="Left"
+                                        />
 
                             </StackPanel>
     

@@ -127,7 +127,7 @@
                   BorderBrush="#FF091E05"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   SelectionChanged="LVCategory_SelectionChanged"
-                  Style="{DynamicResource ListViewStyle1}">
+                  Style="{DynamicResource ListViewStyle1}" d:ItemsSource="{d:SampleData ItemCount=5}">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -171,8 +171,9 @@
                   Grid.Column="2"
                   Background="#FF091E05"
                   BorderThickness="0"
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                  SelectionChanged="LVItems_SelectionChanged" >
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  SelectionChanged="LVItems_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}" >
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -206,7 +207,7 @@
                                        Height="104"
                                        VerticalAlignment="Top"
                                        Margin="33 16 33 0"
-                                       Source="{Binding Path=PhotoPath}"/>
+                                       Source="{Binding PhotoPath}"/>
 
 
                                 <TextBlock Text="{Binding Path=Name}"

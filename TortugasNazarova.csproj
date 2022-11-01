@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClassHelper\AppData.cs" />
+    <Compile Include="ClassHelper\Busket.cs" />
     <Compile Include="EF\Category.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -155,6 +156,9 @@
     <Compile Include="Windows\OrderWindow.xaml.cs">
       <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\PaymentWindow.xaml.cs">
+      <DependentUpon>PaymentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
@@ -179,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\OrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PaymentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -266,6 +274,27 @@
       <DependentUpon>Model3.edmx</DependentUpon>
       <LastGenOutput>Model3.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\spagetti1.jpg" />
+    <Resource Include="Resource\spagetti3.jpg" />
+    <Resource Include="Resource\spagetti4.jpg" />
+    <Resource Include="Resource\spagetti5.jpg" />
+    <Resource Include="Resource\soup1.jpg" />
+    <Resource Include="Resource\soup2.jpg" />
+    <Resource Include="Resource\soup3.jpg" />
+    <Resource Include="Resource\soup4.jpg" />
+    <Resource Include="Resource\soup5.jpg" />
+    <Resource Include="Resource\main1.jpg" />
+    <Resource Include="Resource\main2.jpg" />
+    <Resource Include="Resource\main3.jpg" />
+    <Resource Include="Resource\main4.jpg" />
+    <Resource Include="Resource\main5.jpg" />
+    <Resource Include="Resource\starter1.jpg" />
+    <Resource Include="Resource\starter2.jpg" />
+    <Resource Include="Resource\starter3.jpg" />
+    <Resource Include="Resource\starter4.jpg" />
+    <Resource Include="Resource\starter5.jpg" />
+    <Resource Include="Resource\salad4.jpg" />
+    <Resource Include="Resource\salad5.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\salad1.jpg" />

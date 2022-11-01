@@ -31,7 +31,7 @@
           <Property Name="Weight" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="200" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
-          <Property Name="PhotoPath" Type="varbinary(max)" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -84,6 +84,7 @@
           <Property Name="OrderId" Type="int" Nullable="false" />
           <Property Name="DishId" Type="int" Nullable="false" />
           <Property Name="Qty" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="12" Scale="2" />
         </EntityType>
         <EntityType Name="Reserved">
           <Key>
@@ -300,7 +301,6 @@
           <EntitySet Name="Ingredient" EntityType="TortugasNazarovaModel1.Ingredient" />
           <EntitySet Name="IngredientDish" EntityType="TortugasNazarovaModel1.IngredientDish" />
           <EntitySet Name="Order" EntityType="TortugasNazarovaModel1.Order" />
-          <EntitySet Name="OrderDish" EntityType="TortugasNazarovaModel1.OrderDish" />
           <EntitySet Name="Reserved" EntityType="TortugasNazarovaModel1.Reserved" />
           <EntitySet Name="sysdiagrams" EntityType="TortugasNazarovaModel1.sysdiagrams" />
           <EntitySet Name="Table" EntityType="TortugasNazarovaModel1.Table" />
@@ -315,10 +315,6 @@
           <AssociationSet Name="FK_IngredientDish_Dish" Association="TortugasNazarovaModel1.FK_IngredientDish_Dish">
             <End Role="Dish" EntitySet="Dish" />
             <End Role="IngredientDish" EntitySet="IngredientDish" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderDish_Dish" Association="TortugasNazarovaModel1.FK_OrderDish_Dish">
-            <End Role="Dish" EntitySet="Dish" />
-            <End Role="OrderDish" EntitySet="OrderDish" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Gender" Association="TortugasNazarovaModel1.FK_Employee_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -336,13 +332,18 @@
             <End Role="Table" EntitySet="Table" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderDish_Order1" Association="TortugasNazarovaModel1.FK_OrderDish_Order1">
-            <End Role="Order" EntitySet="Order" />
-            <End Role="OrderDish" EntitySet="OrderDish" />
-          </AssociationSet>
           <AssociationSet Name="FK_Reserved_Table1" Association="TortugasNazarovaModel1.FK_Reserved_Table1">
             <End Role="Table" EntitySet="Table" />
             <End Role="Reserved" EntitySet="Reserved" />
+          </AssociationSet>
+          <EntitySet Name="OrderDish" EntityType="TortugasNazarovaModel1.OrderDish" />
+          <AssociationSet Name="FK_OrderDish_Dish" Association="TortugasNazarovaModel1.FK_OrderDish_Dish">
+            <End Role="Dish" EntitySet="Dish" />
+            <End Role="OrderDish" EntitySet="OrderDish" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDish_Order1" Association="TortugasNazarovaModel1.FK_OrderDish_Order1">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDish" EntitySet="OrderDish" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Category">
@@ -373,7 +374,7 @@
           <Property Name="Weight" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <Property Name="PhotoPath" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PhotoPath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Category" Relationship="TortugasNazarovaModel1.FK_Dish_Category" FromRole="Dish" ToRole="Category" />
           <NavigationProperty Name="IngredientDish" Relationship="TortugasNazarovaModel1.FK_IngredientDish_Dish" FromRole="Dish" ToRole="IngredientDish" />
           <NavigationProperty Name="OrderDish" Relationship="TortugasNazarovaModel1.FK_OrderDish_Dish" FromRole="Dish" ToRole="OrderDish" />
@@ -429,17 +430,6 @@
           <NavigationProperty Name="Employee" Relationship="TortugasNazarovaModel1.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
           <NavigationProperty Name="Table" Relationship="TortugasNazarovaModel1.FK_Order_Table" FromRole="Order" ToRole="Table" />
           <NavigationProperty Name="OrderDish" Relationship="TortugasNazarovaModel1.FK_OrderDish_Order1" FromRole="Order" ToRole="OrderDish" />
-        </EntityType>
-        <EntityType Name="OrderDish">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderId" Type="Int32" Nullable="false" />
-          <Property Name="DishId" Type="Int32" Nullable="false" />
-          <Property Name="Qty" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Dish" Relationship="TortugasNazarovaModel1.FK_OrderDish_Dish" FromRole="OrderDish" ToRole="Dish" />
-          <NavigationProperty Name="Order" Relationship="TortugasNazarovaModel1.FK_OrderDish_Order1" FromRole="OrderDish" ToRole="Order" />
         </EntityType>
         <EntityType Name="Reserved">
           <Key>
@@ -509,18 +499,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderDish_Dish">
-          <End Type="TortugasNazarovaModel1.Dish" Role="Dish" Multiplicity="1" />
-          <End Type="TortugasNazarovaModel1.OrderDish" Role="OrderDish" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dish">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderDish">
-              <PropertyRef Name="DishId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_Gender">
           <End Type="TortugasNazarovaModel1.Gender" Role="Gender" Multiplicity="1" />
           <End Type="TortugasNazarovaModel1.Employee" Role="Employee" Multiplicity="*" />
@@ -569,18 +547,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderDish_Order1">
-          <End Type="TortugasNazarovaModel1.Order" Role="Order" Multiplicity="1" />
-          <End Type="TortugasNazarovaModel1.OrderDish" Role="OrderDish" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderDish">
-              <PropertyRef Name="OrderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Reserved_Table1">
           <End Type="TortugasNazarovaModel1.Table" Role="Table" Multiplicity="1" />
           <End Type="TortugasNazarovaModel1.Reserved" Role="Reserved" Multiplicity="*" />
@@ -590,6 +556,42 @@
             </Principal>
             <Dependent Role="Reserved">
               <PropertyRef Name="TabeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderDish">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="DishId" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="12" Scale="2" />
+          <NavigationProperty Name="Dish" Relationship="TortugasNazarovaModel1.FK_OrderDish_Dish" FromRole="OrderDish" ToRole="Dish" />
+          <NavigationProperty Name="Order" Relationship="TortugasNazarovaModel1.FK_OrderDish_Order1" FromRole="OrderDish" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_OrderDish_Dish">
+          <End Type="TortugasNazarovaModel1.Dish" Role="Dish" Multiplicity="1" />
+          <End Type="TortugasNazarovaModel1.OrderDish" Role="OrderDish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dish">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDish">
+              <PropertyRef Name="DishId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDish_Order1">
+          <End Type="TortugasNazarovaModel1.Order" Role="Order" Multiplicity="1" />
+          <End Type="TortugasNazarovaModel1.OrderDish" Role="OrderDish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDish">
+              <PropertyRef Name="OrderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -678,16 +680,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderDish">
-            <EntityTypeMapping TypeName="TortugasNazarovaModel1.OrderDish">
-              <MappingFragment StoreEntitySet="OrderDish">
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="DishId" ColumnName="DishId" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Reserved">
             <EntityTypeMapping TypeName="TortugasNazarovaModel1.Reserved">
               <MappingFragment StoreEntitySet="Reserved">
@@ -715,6 +707,17 @@
               <MappingFragment StoreEntitySet="Table">
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="QtySeat" ColumnName="QtySeat" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDish">
+            <EntityTypeMapping TypeName="TortugasNazarovaModel1.OrderDish">
+              <MappingFragment StoreEntitySet="OrderDish">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="DishId" ColumnName="DishId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

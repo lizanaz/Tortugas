@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:TortugasNazarova"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="834" Width="1194">
+        Title="MainWindow" Height="834" Width="1194"
+        ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">

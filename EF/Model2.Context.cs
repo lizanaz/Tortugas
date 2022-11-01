@@ -33,9 +33,9 @@ namespace TortugasNazarova.EF
         public virtual DbSet<Ingredient> Ingredient { get; set; }
         public virtual DbSet<IngredientDish> IngredientDish { get; set; }
         public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<OrderDish> OrderDish { get; set; }
         public virtual DbSet<Reserved> Reserved { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Table> Table { get; set; }
+        public virtual DbSet<OrderDish> OrderDish { get; set; }
     }
 }

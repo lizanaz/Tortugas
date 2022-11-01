@@ -25,17 +25,17 @@ namespace TortugasNazarova.EF
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Client> Client { get; set; }
-        public virtual DbSet<Dish> Dish { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Ingredient> Ingredient { get; set; }
         public virtual DbSet<IngredientDish> IngredientDish { get; set; }
         public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<OrderDish> OrderDish { get; set; }
         public virtual DbSet<Reserved> Reserved { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Table> Table { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<OrderDish> OrderDish { get; set; }
+        public virtual DbSet<Dish> Dish { get; set; }
     }
 }

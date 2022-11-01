@@ -131,13 +131,17 @@
                           Grid.Row="1"
                           Grid.ColumnSpan="3"/>-->
 
-        <ListView x:Name="LVCategory"
+        <ListView x:Name="LVOrder"
                   Grid.Column="2"
                   Grid.Row="1"
                   Background="#FF091E05"
                   BorderThickness="0"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  Margin="0 20 0 0">
+                  ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                  Margin="0 20 0 0"
+                  SelectionChanged="LVOrder_SelectionChanged"
+                  Height="530"
+                  VerticalAlignment="Top" d:ItemsSource="{d:SampleData ItemCount=5}">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -149,11 +153,11 @@
                 <DataTemplate>
 
 
-                  <Grid>
+                  <Grid Height="110">
 
                     <WrapPanel >
 
-                            <Image Source="{Binding Path=Dish.PhotoPath}"
+                            <Image Source="{Binding Dish.PhotoPath}"
                                Width="99"
                                Height="79"
                                HorizontalAlignment="Left"
@@ -164,15 +168,19 @@
                                Foreground="#F9B9C3"
                                FontFamily="Helvetica"
                                FontSize="24"
-                               Margin="24 0 0 0"/>
+                               Margin="24 0 0 0"
+                                       TextWrapping="Wrap"
+                                       MaxWidth="300"/>
 
                             <TextBlock Text="{Binding Path=Dish.Price}"
                                Foreground="#F9B9C3"
                                FontFamily="Helvetica"
                                FontSize="20"
-                                   Margin="265 30 0 0"/>
+                               Margin="230 30 0 0"/>
 
                             <Button Height="24"
+                                    x:Name="BtnMinus"
+                                    Click="BtnMinus_Click"
                                 Margin="43 0 0 0"
                                                 Width="24"
                                                 Background="#FF004F2D" 
@@ -190,6 +198,8 @@
                                Margin="20 29 0 0 "/>
 
                             <Button Height="24"
+                                    x:Name="BtnPlus"
+                                    Click="BtnPlus_Click"
                                                 Width="24"
                                                 Background="#FF004F2D" 
                                                 BorderThickness="0"
@@ -202,11 +212,11 @@
                                 Style="{DynamicResource ButtonStyle1}"
                                 Margin="20 0 0 0 "/>
 
-                            <TextBlock Text="{Binding Path=Order.FinalCost}"
+                            <TextBlock Text="{Binding Path=Cost}"
                                Foreground="#F9B9C3"
                                FontFamily="Helvetica"
                                FontSize="20"
-                               Margin="59 30 0 0"/>
+                               Margin="50 30 0 0"/>
 
                     </WrapPanel>
 
@@ -245,6 +255,7 @@
                    Grid.Column="2"
                     Text="Итого: "
                    FontSize="22"
+                   x:Name="txbFinalCost"
                    Foreground="#D87CAC"
                    VerticalAlignment="Bottom"
                    Margin="420 0 150 48"/>

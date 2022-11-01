@@ -9,12 +9,12 @@ namespace TortugasNazarova.Windows
     public partial class MenuWindow : Window
     {
         public static int dishId;
+        public static decimal cost;
         //Dish dish;
 
         public MenuWindow()
         {
             InitializeComponent();
-
             LVCategory.ItemsSource = ClassHelper.AppData.context.Category.ToList();
         }
 
@@ -35,6 +35,7 @@ namespace TortugasNazarova.Windows
                 this.Opacity = 0.2;
                 cardWindow.ShowDialog();
                 this.Opacity = 1;
+                cost = Dish.Price;
             }
         }
 
@@ -47,18 +48,24 @@ namespace TortugasNazarova.Windows
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            //decimal cost = ClassHelper.AppData.context.Dish.Where(i => i.Id == dishId).First().Price;
+            decimal cost = ClassHelper.AppData.context.Dish.Where(i => i.Id == dishId).First().Price;
             OrderDish orderDish = new OrderDish()
             {
                 OrderId = MainWindow.OrderId,
                 DishId = dishId,
-                Qty = 1
+                Qty = 1,
+                Cost = cost
             };
-
+            OrderWindow.finalCost += cost;
             ClassHelper.AppData.context.OrderDish.Add(orderDish);
             ClassHelper.AppData.context.SaveChanges();
 
-            MessageBox.Show("Блюдо добавлено");
+            //var button = sender as Button;
+            //if (button == null)
+            //    return;
+            //var dishes = button.DataContext as Dish;
+
+            //MessageBox.Show("Блюдо добавлено");
 
         }
     }

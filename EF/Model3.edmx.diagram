@@ -5,28 +5,28 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="aeeaa23e260c4710ae29477d57a3a925" Name="Diagram1">
-        <EntityTypeShape EntityType="TortugasNazarovaModel2.Category" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugasNazarovaModel2.Client" Width="1.5" PointX="3.75" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="TortugasNazarovaModel2.Dish" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugasNazarovaModel2.Employee" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugasNazarovaModel2.Gender" Width="1.5" PointX="1.5" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugasNazarovaModel2.Ingredient" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugasNazarovaModel2.IngredientDish" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugasNazarovaModel2.Order" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TortugasNazarovaModel2.OrderDish" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugasNazarovaModel2.Reserved" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugasNazarovaModel2.sysdiagrams" Width="1.5" PointX="7.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TortugasNazarovaModel2.Table" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <AssociationConnector Association="TortugasNazarovaModel2.FK_Dish_Category" ManuallyRouted="false" />
         <AssociationConnector Association="TortugasNazarovaModel2.FK_Reserved_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="TortugasNazarovaModel2.FK_IngredientDish_Dish" ManuallyRouted="false" />
-        <AssociationConnector Association="TortugasNazarovaModel2.FK_OrderDish_Dish" ManuallyRouted="false" />
         <AssociationConnector Association="TortugasNazarovaModel2.FK_Employee_Gender" ManuallyRouted="false" />
         <AssociationConnector Association="TortugasNazarovaModel2.FK_Order_Employee" ManuallyRouted="false" />
         <AssociationConnector Association="TortugasNazarovaModel2.FK_IngredientDish_Ingredient" ManuallyRouted="false" />
         <AssociationConnector Association="TortugasNazarovaModel2.FK_Order_Table" ManuallyRouted="false" />
-        <AssociationConnector Association="TortugasNazarovaModel2.FK_OrderDish_Order1" ManuallyRouted="false" />
         <AssociationConnector Association="TortugasNazarovaModel2.FK_Reserved_Table1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TortugasNazarovaModel2.Category" Width="1.5" PointX="0.75" PointY="10.375" />
+        <EntityTypeShape EntityType="TortugasNazarovaModel2.OrderDish" Width="1.5" PointX="5.25" PointY="7" />
+        <AssociationConnector Association="TortugasNazarovaModel2.FK_OrderDish_Order1" />
+        <EntityTypeShape EntityType="TortugasNazarovaModel2.Dish" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="TortugasNazarovaModel2.FK_Dish_Category" />
+        <AssociationConnector Association="TortugasNazarovaModel2.FK_IngredientDish_Dish" />
+        <AssociationConnector Association="TortugasNazarovaModel2.FK_OrderDish_Dish" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
